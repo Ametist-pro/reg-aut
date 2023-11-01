@@ -14,7 +14,8 @@
 
         $_SESSION['user'] = [
             "id" => $user['id'],
-            "name" => $user['name']
+            "name" => $user['name'],
+            "login" => $login['name']
         ];
 
         header('Location: ../profile.php');
