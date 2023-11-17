@@ -17,6 +17,9 @@
     <!-- Форма регистрации -->
 
     <form action="vendor/signup.php" method="post" enctype="multipart/form-data">
+
+
+
         <label>ФИО</label>
         <input type="text" name="name" placeholder="Введите свое имя">
         <label>Логин</label>
@@ -34,7 +37,31 @@
                 echo '<p class="msg"> ' . $_SESSION['message'] . ' </p>';
             }
             unset($_SESSION['message']);
+
+
         ?>
+    </form>
+   
+
+    <form action="" method="post">
+        <input type="submit" name="submit" value="Сгенерировать">
+        <?php
+				
+                function gen_password($length = 8)
+                {				
+                    $chars = 'qazxswedcvfrtgbnhyujmkiolp1234567890QAZXSWEDCVFRTGBNHYUJMKIOLP!@#$%^&*()_+=-?'; 
+                    $size = strlen($chars) - 1; 
+                    $password = ''; 
+                    while($length--) {
+                        $password .= $chars[random_int(0, $size)]; 
+                    }
+                    return $password;
+                }
+                if($_POST['submit']){
+                    echo gen_password(8);
+                }
+            
+                ?>
     </form>
 
 </body>
