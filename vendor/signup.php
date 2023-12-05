@@ -1,5 +1,4 @@
 <?php
-    global $connect;
     session_start();
     require_once 'connect.php';
 
